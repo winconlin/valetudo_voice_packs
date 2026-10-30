@@ -1,33 +1,34 @@
 # Valetudo Voice Packs
 
-Dreame Robot Vacuum voice packs for [Valetudo](https://github.com/Valetudo/).
+Eine Sammlung von Voice Packs für [Valetudo](https://github.com/RobinBruecker/valetudo) mit deutschen Stimmen.
 
-## Packs
+## Enthaltene Packs
 
-| Pack | Voice | Style | Files |
-|------|-------|-------|-------|
-| [reich_ranicki](reich_ranicki/) | Marcel Reich-Ranicki | Literarisch, autoritär, tief | 201 |
-| [strater](strater/) | Torsten Sträter | Freundlich, warm, Geschichtenerzähler | 201 |
-| _(bayerisch – original)_ | — | Bairisch (Hochdeutsch-Stimme) | 155 |
+| Pack | Sprache | Stil | Dateien |
+|------|---------|------|---------|
+| **Reich-Ranicki** | Deutsch | Autoritär, literarisch, kritisch – im Stil des bekannten Literaturkritikers | 201 (WAV + OGG) |
+| **Sträter** | Deutsch | Erzählerisch, warm, umgangssprachlich – im Stil des bekannten Sprechers | 201 (WAV + OGG) |
 
-## Structure
+## Struktur
 
-Each pack contains:
-- `wav/` — 22 kHz mono WAV files (IDs 0–200), loudness-normalized (I=-14 LUFS, TP=-1 dBFS)
-- `ogg/` — Opus 32 kbps OGG files (same IDs)
+```
+reich_ranicki/
+  wav/    # WAV-Dateien (16 kHz, Mono)
+  ogg/    # OGG-Dateien (Opus, 24 kbps)
+strater/
+  wav/    # WAV-Dateien (16 kHz, Mono)
+  ogg/    # OGG-Dateien (Opus, 24 kbps)
+sound_list_reich_ranicki.csv  # Texte für den Reich-Ranicki Pack
+sound_list_strater.csv        # Texte für den Sträter Pack
+```
 
 ## Installation
 
-1. Copy the pack folder to your Valetudo robot:
-   ```bash
-   scp -r reich_ranicki/ pi@<robot-ip>:/opt/voicepacks/reich_ranicki/
-   ```
-2. In Valetudo Settings → Voice, select the pack by name.
+1. Den gewünschten Ordner (z. B. `reich_ranicki/ogg/`) nach `/mnt/user/shared/valetudo/voices/` auf deinem Valetudo-Server kopieren.
+2. In Valetudo den Voice Pack auswählen.
 
-## Texts
+## Hinweise
 
-The Hochdeutsch text list is in `sound_list_hochdeutsch.csv`. The original Bavarian list is in `sound_list_bayrisch.csv`.
-
-## Generation
-
-Packs were generated with [VoiceStudio](https://github.com/) TTS (profiles: `f937ec11` for Reich-Ranicki, `558b4913` for Sträter), normalized with ffmpeg `loudnorm=I=-14:TP=-1:LRA=11`.
+- Alle Audiodateien sind auf -1 dBFS normalisiert.
+- Die WAV-Dateien sind für maximale Qualität, die OGG-Dateien für kleineren Speicherplatz.
+- Die Texte sind in den zugehörigen CSV-Dateien dokumentiert.
